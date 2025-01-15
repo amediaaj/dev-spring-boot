@@ -19,3 +19,4 @@ public class FunRestController {
         return "Hello World " + coachName + " of team " + teamName;
     }
 }
+
