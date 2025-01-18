@@ -9,10 +9,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 // 					Also recursively scans sub-packages
 // @Configuration - Able to register extra beans with @Beans
 //                  or import other configuration classes
-@SpringBootApplication(
-		scanBasePackages = {
-				"com.luv2code.springcoredemo",
-				"com.luv2code.util"})
+
+//@SpringBootApplication(
+//		scanBasePackages = {
+//				"com.luv2code.springcoredemo", // explicitly list packages for scanning
+//				"com.luv2code.util"})
+
+// This causes the app to fail to start because the packages are not listed
+// for component scanning, if components are in those packages
+@SpringBootApplication
 public class SpringcoredemoApplication {
 
 	public static void main(String[] args) {
