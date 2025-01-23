@@ -13,7 +13,10 @@ public class DemoController {
 
     // Can use any method name since this is autowired
     @Autowired
-    public DemoController(Coach theCoach) { myCoach = theCoach; } // Qualifier uses the same name as the class but lowerCase first letter
+    public DemoController(@Qualifier("trackCoach") Coach theCoach) {
+        System.out.println("In constructor: " + getClass().getSimpleName());
+        myCoach = theCoach ;
+    }
 
     @GetMapping("/dailyworkout")
     public String getDailyWorkout() {
