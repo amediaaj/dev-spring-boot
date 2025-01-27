@@ -8,8 +8,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SportConfig {
 
-        // Bean id defaults to the method name
-        @Bean
+        // Bean Id defaults to the method name
+        // Or specify an Id i.e. "aquatic"
+        @Bean("aquatic")
         public Coach swimCoach() {
             return new SwimCoach();
         }
