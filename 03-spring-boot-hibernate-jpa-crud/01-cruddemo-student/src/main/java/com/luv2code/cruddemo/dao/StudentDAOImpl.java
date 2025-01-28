@@ -2,7 +2,6 @@ package com.luv2code.cruddemo.dao;
 
 import com.luv2code.cruddemo.entity.Student;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.Transient;
 import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -40,7 +39,22 @@ public class StudentDAOImpl implements StudentDAO{
         // create query
         // Note: this is NOT the name of the database table, nor the colum representing last name
         //  All JPQL syntax is based on the entity name and entity fields
-        TypedQuery<Student> theQuery = entityManager.createQuery("FROM Student order by lastName asc", Student.class);
+        TypedQuery<Student> theQuery = entityManager.createQuery("FROM Student", Student.class);
+
+        // return query results
+        return theQuery.getResultList();
+    }
+
+    @Override
+    public List<Student> findByLastName(String theLastName) {
+        // create query
+        // JPQL Named Parameters are prefixed with a colon
+        TypedQuery<Student> theQuery = entityManager.createQuery(
+                "FROM Student WHERE lastName=:theData", Student.class);
+
+
+        // set query parameters
+        theQuery.setParameter("theData", theLastName);
 
         // return query results
         return theQuery.getResultList();
