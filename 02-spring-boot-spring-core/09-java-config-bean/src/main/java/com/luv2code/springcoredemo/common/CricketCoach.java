@@ -12,21 +12,6 @@ public class CricketCoach implements Coach {
         System.out.println("In constructor: " + getClass().getSimpleName());
     }
 
-    // define our init method
-    @PostConstruct
-    public void doMyStartupStuff() {
-        System.out.println("In doMyStartupStuff(): " + getClass().getSimpleName());
-    }
-
-    // define our destroy method
-    // Note: For "prototype" scoped beans, Spring does not call the destroy method.
-    // In contrast to the other scopes, Spring does not manage the complete
-    // lifecycle of a prototype bean. Client code must clean-up.
-    @PreDestroy
-    public void doMyCleanupStuff() {
-        System.out.println("In doMyCleanupStuff(): " + getClass().getSimpleName());
-    }
-
     @Override
     public String getDailyWorkout() {
         return "Practice fast bowling for 15 minutes";
