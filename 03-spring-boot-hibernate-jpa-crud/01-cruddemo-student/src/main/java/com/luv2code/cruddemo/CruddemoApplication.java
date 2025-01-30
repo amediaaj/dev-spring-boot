@@ -24,14 +24,14 @@ public class CruddemoApplication {
 			// createStudent(studentDAO);
 			// readStudent(studentDAO);
 			
-			// createMultipleStudents(studentDAO);
+			 createMultipleStudents(studentDAO);
 			// queryForStudents(studentDAO);
 			
 			// queryForStudentsByLastName(studentDAO);
 			// updateStudent(studentDAO);
 
 			// deleteStudent(studentDAO);
-			deleteAllStudents(studentDAO);
+			// deleteAllStudents(studentDAO);
 			
 		};
 	}
